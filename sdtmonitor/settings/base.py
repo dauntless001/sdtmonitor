@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 
     #Apps
     "base",
+    "plan",
     "wsite",
 
     # third party
