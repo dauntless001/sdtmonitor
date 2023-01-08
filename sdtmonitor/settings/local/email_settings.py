@@ -2,7 +2,7 @@ import os
 
 # Sending email configuration
 EMAIL_HOST_USER = os.getenv(
-    "EMAIL_HOST_USER", "contact@sdtmonitor.com.com"
+    "EMAIL_HOST_USER", "contact@sdtmonitor.com"
 )
 
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
