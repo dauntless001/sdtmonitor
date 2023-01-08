@@ -14,14 +14,14 @@ class Website(NameTimeBasedModel, StatusModel):
         return f'{self.name} site by {self.user}'
 
 
-class Log(TimeBasedModel, StatusModel):
+class WebsiteLog(TimeBasedModel, StatusModel):
     site = auto_prefetch.ForeignKey('wsite.Website', on_delete=models.CASCADE)
 
     def __str__(self):
         return ''
 
 
-class Emails(TimeBasedModel):
+class WebsiteEmail(TimeBasedModel):
     site = auto_prefetch.ForeignKey('wsite.Website', on_delete=models.CASCADE)
     email = models.EmailField()
 
