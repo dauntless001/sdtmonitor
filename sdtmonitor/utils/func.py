@@ -1,7 +1,28 @@
 import requests
 from wsite.models import Website
 from celery import task
-from .views import send_email_notification, send_sms_notification
+from django.core.mail import send_mail, send_mass_mail, BadHeaderError
+
+
+
+# opens a connection to the mail server each time it’s executed
+def send_email_notification(subject, message, from_email, recipients):
+
+    send_mail(subject, message, from_email, 
+    recipients, fail_silently=False)
+
+
+def send_mass_email_notification(subject, message, from_email, recipient_list):
+    
+    send_mass_mail(subject, message, from_email, recipient_list)
+
+
+# uses a single connection for all of its message
+def send_sms_notification(subject, message, from_email, recipients):
+    sms_message = (subject, message, from_email, recipients)
+    send_mass_mail((sms_message,), fail_silently=False)
+
+
 
 @task
 def check_website_status():
