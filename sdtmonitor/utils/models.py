@@ -20,10 +20,6 @@ class NameTimeBasedModel(TimeBasedModel):
 
 class StatusModel(models.Model):
     status = models.CharField(max_length=30, choices=SiteStatus.choices)
-<<<<<<< HEAD
-    status_code = models.PositiveIntegerField(default=0)
-=======
->>>>>>> master
 
 
     class Meta:
