@@ -15,13 +15,20 @@ MIDDLEWARE += [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
+import os
+from decouple import config
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES["default"]= {
-    "ENGINE": "django.db.backends.sqlite3",
-    "NAME": BASE_DIR / "sdtmonitor.db",
+    "ENGINE": "django.db.backends.mysql",
+    "NAME": config("DB_NAME"),
+    "HOST" : config("DB_HOST"),
+    "PORT" : config("DB_PORT"),
+    "USER" : config("DB_USERNAME"),
+    "PASSWORD" : config("DB_PASSWORD"),
+
 }
 
 
