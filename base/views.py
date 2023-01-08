@@ -13,6 +13,14 @@ class IndexView(TemplateView):
         return context
 
 
+class AboutUsView(TemplateView):
+    template_name = 'about.html'
+
+
+class ContactView(TemplateView):
+    template_name = 'contact.html'
+
+
 class EditUser(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         template_name = 'profile.html'
