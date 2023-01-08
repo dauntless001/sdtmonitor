@@ -13,12 +13,14 @@ def check_website_status():
             website.status_code = response.status_code
             if response.status_code == 200:
                 if not website.is_up:
+
                     # website was down but is now up
                     website.notification_sent = False
                     website.downtime = 0
                 website.is_up = True
             else:
                 if website.is_up:
+                    
                     # website was up but is now down
                     if not website.notification_sent:
                         recipients = ['your-email@example.com', 'your-phone-number@sms.gateway.com']
