@@ -1,0 +1,12 @@
+import os
+
+CELERY_RESULT_BACKEND = os.getenv(
+    "REDIS_URL", "redis://localhost:6379/0")
+
+BROKER_URL = CELERY_RESULT_BACKEND
+
+CELERY_BROKER_URL = CELERY_RESULT_BACKEND
+
+CELERY_ACCEPT_CONTENT = ["application/json"]
+
+CELERY_TASK_SERIALIZER = "json"
