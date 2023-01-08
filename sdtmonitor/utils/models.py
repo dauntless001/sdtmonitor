@@ -20,6 +20,8 @@ class NameTimeBasedModel(TimeBasedModel):
 
 class StatusModel(models.Model):
     status = models.CharField(max_length=30, choices=SiteStatus.choices)
+    status_code = models.PositiveIntegerField(default=0)
+    last_checked = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         abstract = True
