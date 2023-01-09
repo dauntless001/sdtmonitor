@@ -13,10 +13,9 @@
                 <div
                     class="col-xl-5 col-lg-6 col-md-8 col-sm-8 col-xs-10 card-sigin-main mx-auto my-auto py-4 justify-content-center">
                     <div class="card-sigin">
-                        <!-- Demo content-->
                         <div class="main-card-signin d-md-flex">
                             <div class="wd-100p">
-                                <div class="d-flex mb-4"><a href="index.html"><img src="{% static 'img/brand/favicon.png' %}"
+                                <div class="d-flex mb-4"><a href="{% url 'base:index' %}"><img src="{% static 'img/brand/favicon.png' %}"
                                             class="sign-favicon ht-40" alt="logo"></a></div>
                                 <div class="">
                                     <div class="main-signup-header">
@@ -34,7 +33,7 @@
                                                                 <input class="form-control" placeholder="Enter your email" type="text" name="{{form.login.name}}""> 
                                                             </div>
                                                             <div class="form-group"> 
-                                                                <label>Password</label> 
+                                                                <label>{{form.password.label}}</label> 
                                                                 <input class="form-control" name="{{form.password.name}}" placeholder="Enter your password" type="password">
                                                             </div>
                                                             <button class="btn btn-primary btn-block">Sign In</button>

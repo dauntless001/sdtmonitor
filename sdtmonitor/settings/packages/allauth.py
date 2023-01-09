@@ -3,10 +3,10 @@ from django.urls import reverse_lazy
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = reverse_lazy(
-    "home:edit-profile")
+    "base:edit-profile")
 
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = reverse_lazy(
-    "home:edit-profile"
+    "base:edit-profile"
 )
 
 ACCOUNT_EMAIL_MAX_LENGTH = 40
