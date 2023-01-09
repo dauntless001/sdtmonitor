@@ -3,6 +3,7 @@ from django.views.generic import TemplateView, View
 from plan.models import Plan
 from django.contrib.auth.mixins import LoginRequiredMixin
 from base.forms import UserForm
+from base.models import About, Contact
 # Create your views here.
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -13,12 +14,29 @@ class IndexView(TemplateView):
         return context
 
 
-class AboutUsView(TemplateView):
-    template_name = 'about.html'
+class AboutUsView(View):
+
+    def get(self, request):
+        about_data = About.objects.first()
+        template_name = 'about.html'
+        context = {
+            'about_data': about_data
+        }
+        return render(request, template_name, context)
+    # create post data to populate data storage with the admin
 
 
-class ContactView(TemplateView):
-    template_name = 'contact.html'
+
+class ContactView(View):
+
+    def get(self, request):
+        contact_data = Contact.objects.first()
+        template_name = 'contact.html'
+        context = {
+            'contact_data' : contact_data
+        }
+        return render(request, template_name, context)
+    # create post data to populate data storage with the admin
 
 
 class EditUser(LoginRequiredMixin, View):
@@ -37,4 +55,19 @@ class EditUser(LoginRequiredMixin, View):
 '''
 Update Profile
 Subscription Page
+
+Profile Settings Pages-->
+change password
+edit profile
+
+home pages -->
+Homepage
+About us
+Pricing
+
+wsite pages ->
+create, retreive website
+add emails to website
+
+
 '''
