@@ -1,10 +1,37 @@
 {% extends "partials/_auth_layout.html" %}
-{% load static %}
-{% load i18n %}
+
+{% load i18n static %}
 {% load account socialaccount %}
 
-{% block title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+{% block title %}{% trans "Verification Sent" %}{% endblock %}
 
 {% block body %}
-
+<div class="page">
+    <div class="page-single">
+        <div class="container">
+            <div class="row">
+                <div
+                    class="col-xl-5 col-lg-6 col-md-8 col-sm-8 col-xs-10 card-sigin-main mx-auto my-auto py-4 justify-content-center">
+                    <div class="card-sigin text-center">
+                        <div class="main-card-signin d-md-flex">
+                            <div class="wd-100p">
+                                <div class=""><a href="{% url 'base:index' %}"><img src="{% static 'img/brand/favicon.png' %}"
+                                            class="sign-favicon ht-40" alt="logo"></a></div>
+                                <div class="">
+                                    <div class="main-signup-header">
+                                        <h2>Verify Email Address</h2>
+                                        <h6 class="font-weight-semibold mb-4">{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification e-mail in your main inbox, check your spam folder. Please contact us if you do not receive the verification e-mail within a few minutes{% endblocktrans %}</h6>
+                                        <div class="main-signin-footer text-center mt-3">
+                                            <p><a href="{% url 'account_login' %}" class="mb-3">Back to Login</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock body %}
