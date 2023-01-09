@@ -1,0 +1,18 @@
+<script src="../../../../../../../../../../assets/js/bootstrap.min.html" async></script>
+{{- if .IsHome }}
+<script src="../../../../../../../../../../assets/js/list.min.html"></script>
+<script>
+  new List('icons-body', {
+    valueNames: ['name', { data: ['tags', 'categories'] }]
+  });
+</script>
+{{- end }}
+
+{{- $vendor := resources.Match "js/vendor/*.js" -}}
+{{- $js := resources.Match "js/*.js" -}}
+{{- $docsJs := append $js $vendor | resources.Concat "assets/js/application.js" -}}
+
+{{- if eq hugo.Environment "production" -}}
+  {{- $docsJs = $docsJs | resources.Minify -}}
+{{- end }}
+<script src="%7b%7b%20%24docsJs.html" async></script>

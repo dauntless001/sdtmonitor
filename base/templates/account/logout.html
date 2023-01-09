@@ -6,6 +6,44 @@
 {% block title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block body %}
-
-
+<div class="page">
+    <div class="page-single">
+        <div class="container">
+            <div class="row">
+                <div
+                    class="col-xl-5 col-lg-6 col-md-8 col-sm-8 col-xs-10 card-sigin-main mx-auto my-auto py-4 justify-content-center">
+                    <div class="card-sigin text-center">
+                        <!-- Demo content-->
+                        <div class="main-card-signin d-md-flex">
+                            <div class="wd-100p">
+                                <div class="mb-4"><a href="index.html"><img src="{% static 'img/brand/favicon.png' %}"
+                                            class="sign-favicon ht-40" alt="logo"></a></div>
+                                <div class="">
+                                    <div class="main-signup-header">
+                                        <h2>Goodbye!</h2>
+                                        <div class="panel panel-primary">
+                                            <div class="panel-body tabs-menu-body border-0 p-3">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" id="tab5">
+                                                        <form method="POST" >
+                                                            {% include "partials/_messages.html" %}
+                                                            {% include "partials/_form_errors.html" %}
+                                                            <p>Are you Sure you want to Log Out?</p>
+                                                            <button class="btn btn-primary" type="submit">Yes, Sign Out</button>
+                                                            <a class="btn btn-outline-primary" href="{% url 'base:dashboard' %}">No, Go Back</a>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock body %}
