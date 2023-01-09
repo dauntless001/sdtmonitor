@@ -36,7 +36,7 @@ python manage.py migrate
 If you haven't cloned the repository, use the command to clone from the terminal
 
 ```sh
-git clone https://gitlab.com/tushortz/softskillspace
+git clone https://github.com/dauntless001/sdtmonitor.git
 ```
 
 When creating a new branch, **ENSURE** that the branch name starts with the format **SDT-&lt;issue-no&gt;-&lt;short-description&gt;** e.g. **SDT-1-project-setup** and the main branch is from develop.
