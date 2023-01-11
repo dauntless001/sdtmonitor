@@ -20,7 +20,7 @@
 
         <div class='themo_cart_icon'><a href='https://demo.themovation.com/stratus/cart/'><i class='th-icon th-i-cart'></i></a></div>
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-            <ul id="menu-stratus" class="nav navbar-nav"><li class="col2-mega col3-mega menu-item menu-item-type-custom menu-item-object-custom menu-item-home current-menu-ancestor current-menu-parent menu-item-has-children dropdown menu-item-6496"><a class="dropdown-toggle elementor-item" href="">Contact US <b class="caret"></b></a>
+            <ul id="menu-stratus" class="nav navbar-nav"><li class="col2-mega col3-mega menu-item menu-item-type-custom menu-item-object-custom menu-item-home current-menu-ancestor current-menu-parent menu-item-has-children dropdown menu-item-6496"><a class="dropdown-toggle elementor-item" href="{% url 'base:contact' %}">Contact <b class="caret"></b></a>
 
  
 </li>
@@ -28,35 +28,59 @@
 <!-- Settings -->
 
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-6431"><a class="dropdown-toggle elementor-item" href="#0">Settings <b class="caret"></b></a>
-
+<ul class="dropdown-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6466"><a href="https://demo.themovation.com/stratus/our-portfolio/">Add Website</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6467"><a href="https://demo.themovation.com/stratus/our-portfolio/our-portfolio-4-column/">Delete website</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6468"><a href="https://demo.themovation.com/stratus/our-portfolio/our-portfolio-5-column/">List Websites</a></li>
+	</ul>
 </li>
 
 <!-- Analytics -->
 
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-6494"><a class="dropdown-toggle elementor-item" href="https://demo.themovation.com/stratus/our-portfolio/our-portfolio-2/">Analytics <b class="caret"></b></a>
-
+<!-- <ul class="dropdown-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6465"><a href="https://demo.themovation.com/stratus/our-portfolio/our-portfolio-2/">Analytics – Agency</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8905"><a href="https://demo.themovation.com/stratus/our-portfolio/our-portfolio-2-2/">Analytics – Gallery Lightbox</a></li>
+	<li class="dropdown dropdown-submenu" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-10980"><a class="dropdown-toggle elementor-item" href="#0">Analytics &#8211; Classic <b class="caret"></b></a>
+<ul class="dropdown-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6466"><a href="https://demo.themovation.com/stratus/our-portfolio/">Analytics &#8211; 3 Column</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6467"><a href="https://demo.themovation.com/stratus/our-portfolio/our-portfolio-4-column/">Analytics &#8211; 4 Column</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6468"><a href="https://demo.themovation.com/stratus/our-portfolio/our-portfolio-5-column/">Analytics &#8211; 5 Column</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-themo_portfolio menu-item-10978"><a href="https://demo.themovation.com/stratus/portfolio/case-study/">Project &#8211; Case Study</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-themo_portfolio menu-item-10979"><a href="https://demo.themovation.com/stratus/portfolio/healthy-truffles-2/">Project &#8211; Simple</a></li>
+</ul> -->
 </li>
 
 <!-- Features -->
 
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-6469"><a class="dropdown-toggle elementor-item" href="#0">Features <b class="caret"></b></a>
-
+<ul class="dropdown-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6466"><a href="">Track Multiple Websites</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6467"><a href="">Instant Notifications</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6468"><a href="">Website Downtime Monitors</a></li>
+	</ul>
 </li>
 
-<!-- Communication -->
 
-<li class="th-menu-blog menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-6478"><a class="dropdown-toggle elementor-item" href="https://demo.themovation.com/stratus/blog-masonry/">Communication<b class="caret"></b></a>
+<!-- Account -->
 
+<li class="th-menu-blog menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-6478"><a class="dropdown-toggle elementor-item" href="">Account<b class="caret"></b></a>
+<ul class="dropdown-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6466"><a href="">Register</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6467"><a href="">Login</a></li>
+	</ul>
 </li>
 
 <!-- Pricing -->
 
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-6488"><a class="dropdown-toggle elementor-item" href="https://demo.themovation.com/stratus/shop-2/">Pricing <b class="caret"></b></a>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-6488"><a class="dropdown-toggle elementor-item" href="{% url 'plan:plans' %}">Pricing <b class="caret"></b></a>
 
 </li>
 <!-- Purchase -->
 
-<li class="th-accent menu-item menu-item-type-custom menu-item-object-custom menu-item-6493"><a target="_blank" rel="noopener" href="https://1.envato.market/stratus">Purchase</a>
+<li class="th-accent menu-item menu-item-type-custom menu-item-object-custom menu-item-6493"><a target="_blank" rel="noopener" href="https://1.envato.market/stratus">Sign up</a>
 </li>
 
 </ul>  </nav>
