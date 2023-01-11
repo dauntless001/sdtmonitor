@@ -3,6 +3,7 @@ from django.views.generic import TemplateView, View
 from plan.models import Plan
 from django.contrib.auth.mixins import LoginRequiredMixin
 from base.forms import UserForm
+from wsite.models import Website
 # Create your views here.
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -24,6 +25,11 @@ class ContactView(TemplateView):
 
 class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['websites'] = Website.objects.filter(user=self.request.user)[:5]
+        return context
 
 class EditUser(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):

@@ -2,7 +2,7 @@
 {% load static i18n %}
 {% block content %}
 <div class="row">
-    <div class="col-xxl-5 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
                 <div class="card">
@@ -11,7 +11,7 @@
                             <div class="col-xl-9 col-lg-7 col-md-6 col-sm-12">
                                 <div class="text-justified align-items-center">
                                     <h3 class="text-dark font-weight-semibold mb-2 mt-0">Hi, Welcome Back
-                                        <span class="text-primary">Nick!</span></h3>
+                                        <span class="text-primary">{{user}}!</span></h3>
                                     <p class="text-dark tx-14 mb-3 lh-3"> You have used the 85% of free plan
                                         storage. Please upgrade your plan to get unlimited storage.</p>
                                     <button class="btn btn-primary shadow">Upgrade Now</button>
@@ -137,7 +137,47 @@
             </div>
         </div>
     </div>
-    <div class="col-xxl-7 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Recent Sites Added</h4>
+            </div>
+            <div class="card-body pt-0 example1-table">
+                {% if websites %}
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover mb-0 text-md-nowrap">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>URL</th>
+                                <th>Status</th>
+                                <th>Func</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for website in websites %}
+                            <tr>
+                                <th scope="row">{{forloop.counter}}</th>
+                                <td>{{website.name}}</td>
+                                <td>{{website.url}}</td>
+                                <td class="text-center"><span class="badge bg-{{website.get_color}}">{{website.status}}</span></td>
+                                <td>
+                                    <a href="{% url 'wsites:site' website.slug %}" class="btn btn-primary btn-sm">View</a>
+                                    <a href="{% url 'wsites:delete-site' website.slug %}" class="btn btn-outline-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <p>No Site under your watch Yet! <a href="{% url 'wsites:create-site' %}" class="text-danger">Add to WatchList</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
         <div class="card custom-card overflow-hidden">
             <div class="card-header border-bottom-0">
                 <div>
@@ -863,589 +903,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12 col-xl-6">
-                <div class="card">
-                    <div class="card-header pb-3">
-                        <h3 class="card-title mb-2">MAIN TASKS</h3>
-                    </div>
-                    <div class="card-body p-0 customers mt-1">
-                        <div class=""> <label class="p-2 d-flex"> <span class="check-box mb-0 ms-2"> <span
-                                        class="ckbox"><input type="checkbox"><span></span></span> </span>
-                                <span class="mx-3 my-auto"> accurate information at any given point. </span>
-                                <span class="ms-auto"><span
-                                        class="badge badge-primary-transparent font-weight-semibold px-2 py-1 tx-11 me-2">Today</span></span>
-                            </label> <label class="p-2 mt-2 d-flex"> <span class="check-box mb-0 ms-2">
-                                    <span class="ckbox"><input type="checkbox"><span></span></span> </span>
-                                <span class="mx-3 my-auto"> sharing the information with clients or
-                                    stakeholders. </span> <span class="ms-auto"><span
-                                        class="badge badge-primary-transparent font-weight-semibold px-2 py-1 tx-11 me-2">Today</span></span>
-                            </label> <label class="p-2 mt-2 d-flex"> <span class="check-box mb-0 ms-2">
-                                    <span class="ckbox"><input type="checkbox"><span></span></span> </span>
-                                <span class="mx-3 my-auto"> Hearing the information and responding . </span>
-                                <span class="ms-auto"><span
-                                        class="badge badge-primary-transparent font-weight-semibold px-2 py-1 tx-11 me-2 float-end">22
-                                        hrs</span></span> </label> <label class="p-2 mt-2 d-flex"> <span
-                                    class="check-box mb-0 ms-2"> <span class="ckbox"><input
-                                            type="checkbox"><span></span></span> </span> <span
-                                    class="mx-3 my-auto"> Setting up and customizing your own sales. </span>
-                                <span class="ms-auto"> <span
-                                        class="badge badge-light-transparent font-weight-semibold px-2 py-1 tx-11 me-2">1
-                                        Day</span></span> </label> <label class="p-2 mt-2 d-flex"> <span
-                                    class="check-box mb-0 ms-2"> <span class="ckbox"><input checked=""
-                                            type="checkbox"><span></span></span> </span> <span
-                                    class="mx-3 my-auto"> To have a complete 360° overview of sales
-                                    information, having. </span> <span class="ms-auto"> <span
-                                        class="badge badge-light-transparent font-weight-semibold px-2 py-1 tx-11 me-2">2
-                                        Days</span></span> </label> <label class="p-2 mt-2 d-flex"> <span
-                                    class="check-box mb-0 ms-2"> <span class="ckbox"><input checked=""
-                                            type="checkbox"><span></span></span> </span> <span
-                                    class="mx-3 my-auto"> New Admin Launched. </span> </label> <label
-                                class="p-2 mt-2 d-flex"> <span class="check-box mb-0 ms-2"> <span
-                                        class="ckbox"><input checked="" type="checkbox"><span></span></span>
-                                </span> <span class="mx-3 my-auto mb-4"> To maximize profits and improve
-                                    productivity. </span> </label> <label class="p-2 mt-2 d-flex"> <span
-                                    class="check-box mb-0 ms-2"> <span class="ckbox"><input checked=""
-                                            type="checkbox"><span></span></span> </span> <span
-                                    class="mx-3 my-auto mb-4"> To improve profits. </span> </label> </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 col-xxl-3 col-md-12 col-lg-12">
-                <div class="card">
-                    <div class="card-header pb-0">
-                        <h3 class="card-title mb-2">Weekly Visitors</h3>
-                    </div>
-                    <div class="card-body pb-0" style="position: relative;">
-                        <div class="row mb-4">
-                            <div class="col-6">
-                                <div class="text-muted tx-12 text-center mb-2">Average Male Visitors</div>
-                                <div class="d-flex justify-content-center align-items-center"> <span
-                                        class="me-3 tx-26 font-weight-semibold">2,132</span> <span
-                                        class="text-success font-weight-semibold"><i
-                                            class="fa fa-caret-up me-2"></i>0.23%</span> </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-muted tx-12 text-center mb-2">Average Female Visitors</div>
-                                <div class="d-flex justify-content-center align-items-center"> <span
-                                        class="me-3 tx-26 font-weight-semibold">1,053</span> <span
-                                        class="text-danger font-weight-semibold"><i
-                                            class="fa fa-caret-down me-2"></i>0.11%</span> </div>
-                            </div>
-                        </div>
-                        <div id="Viewers" style="min-height: 330px;">
-                            <div id="apexchartsawzxttom" class="apexcharts-canvas apexchartsawzxttom light"
-                                style="width: 791px; height: 315px;"><svg id="SvgjsSvg1279" width="791" height="315"
-                                    xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
-                                    class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)"
-                                    style="background: none;">
-                                    <foreignObject x="0" y="0" width="791" height="315">
-                                        <div class="apexcharts-legend center position-top"
-                                            xmlns="http://www.w3.org/1999/xhtml"
-                                            style="right: 0px; position: absolute; left: 0px; top: 5px;">
-                                            <div class="apexcharts-legend-series" rel="1" data:collapsed="false"
-                                                style="margin: 0px 5px;"><span class="apexcharts-legend-marker"
-                                                    rel="1" data:collapsed="false"
-                                                    style="background: rgb(56, 202, 179); color: rgb(56, 202, 179); height: 12px; width: 12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255, 255); border-radius: 12px;"></span><span
-                                                    class="apexcharts-legend-text" rel="1" i="0"
-                                                    data:default-text="Male" data:collapsed="false"
-                                                    style="color: rgb(55, 61, 63); font-size: 12px; font-family: Helvetica, Arial, sans-serif;">Male</span>
-                                            </div>
-                                            <div class="apexcharts-legend-series" rel="2" data:collapsed="false"
-                                                style="margin: 0px 5px;"><span class="apexcharts-legend-marker"
-                                                    rel="2" data:collapsed="false"
-                                                    style="background: rgb(228, 231, 237); color: rgb(228, 231, 237); height: 12px; width: 12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255, 255); border-radius: 12px;"></span><span
-                                                    class="apexcharts-legend-text" rel="2" i="1"
-                                                    data:default-text="Female" data:collapsed="false"
-                                                    style="color: rgb(55, 61, 63); font-size: 12px; font-family: Helvetica, Arial, sans-serif;">Female</span>
-                                            </div>
-                                        </div>
-                                        <style type="text/css">
-                                            .apexcharts-legend {
-                                                display: flex;
-                                                overflow: auto;
-                                                padding: 0 10px;
-                                            }
-
-                                            .apexcharts-legend.position-bottom,
-                                            .apexcharts-legend.position-top {
-                                                flex-wrap: wrap
-                                            }
-
-                                            .apexcharts-legend.position-right,
-                                            .apexcharts-legend.position-left {
-                                                flex-direction: column;
-                                                bottom: 0;
-                                            }
-
-                                            .apexcharts-legend.position-bottom.left,
-                                            .apexcharts-legend.position-top.left,
-                                            .apexcharts-legend.position-right,
-                                            .apexcharts-legend.position-left {
-                                                justify-content: flex-start;
-                                            }
-
-                                            .apexcharts-legend.position-bottom.center,
-                                            .apexcharts-legend.position-top.center {
-                                                justify-content: center;
-                                            }
-
-                                            .apexcharts-legend.position-bottom.right,
-                                            .apexcharts-legend.position-top.right {
-                                                justify-content: flex-end;
-                                            }
-
-                                            .apexcharts-legend-series {
-                                                cursor: pointer;
-                                                line-height: normal;
-                                            }
-
-                                            .apexcharts-legend.position-bottom .apexcharts-legend-series,
-                                            .apexcharts-legend.position-top .apexcharts-legend-series {
-                                                display: flex;
-                                                align-items: center;
-                                            }
-
-                                            .apexcharts-legend-text {
-                                                position: relative;
-                                                font-size: 14px;
-                                            }
-
-                                            .apexcharts-legend-text *,
-                                            .apexcharts-legend-marker * {
-                                                pointer-events: none;
-                                            }
-
-                                            .apexcharts-legend-marker {
-                                                position: relative;
-                                                display: inline-block;
-                                                cursor: pointer;
-                                                margin-right: 3px;
-                                            }
-
-                                            .apexcharts-legend.right .apexcharts-legend-series,
-                                            .apexcharts-legend.left .apexcharts-legend-series {
-                                                display: inline-block;
-                                            }
-
-                                            .apexcharts-legend-series.no-click {
-                                                cursor: auto;
-                                            }
-
-                                            .apexcharts-legend .apexcharts-hidden-zero-series,
-                                            .apexcharts-legend .apexcharts-hidden-null-series {
-                                                display: none !important;
-                                            }
-
-                                            .inactive-legend {
-                                                opacity: 0.45;
-                                            }
-                                        </style>
-                                    </foreignObject>
-                                    <g id="SvgjsG1281" class="apexcharts-inner apexcharts-graphical"
-                                        transform="translate(12, 46)">
-                                        <defs id="SvgjsDefs1280">
-                                            <clipPath id="gridRectMaskawzxttom">
-                                                <rect id="SvgjsRect1285" width="771" height="228.348" x="-1" y="-1"
-                                                    rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0"
-                                                    stroke="none" stroke-dasharray="0"></rect>
-                                            </clipPath>
-                                            <clipPath id="gridRectMarkerMaskawzxttom">
-                                                <rect id="SvgjsRect1286" width="771" height="228.348" x="-1" y="-1"
-                                                    rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0"
-                                                    stroke="none" stroke-dasharray="0"></rect>
-                                            </clipPath>
-                                        </defs>
-                                        <line id="SvgjsLine1284" x1="0" y1="0" x2="0" y2="226.348" stroke="#b6b6b6"
-                                            stroke-dasharray="3" class="apexcharts-xcrosshairs" x="0" y="0"
-                                            width="1" height="226.348" fill="#b1b9c4" filter="none"
-                                            fill-opacity="0.9" stroke-width="1"></line>
-                                        <g id="SvgjsG1297" class="apexcharts-xaxis" transform="translate(0, 0)">
-                                            <g id="SvgjsG1298" class="apexcharts-xaxis-texts-g"
-                                                transform="translate(0, -4)"><text id="SvgjsText1299"
-                                                    font-family="Helvetica, Arial, sans-serif" x="0" y="255.348"
-                                                    text-anchor="middle" dominant-baseline="auto" font-size="12px"
-                                                    font-weight="400" fill="#373d3f" class="apexcharts-xaxis-label "
-                                                    style="font-family: Helvetica, Arial, sans-serif;">
-                                                    <tspan id="SvgjsTspan1300"
-                                                        style="font-family: Helvetica, Arial, sans-serif;">1</tspan>
-                                                    <title>1</title>
-                                                </text><text id="SvgjsText1301"
-                                                    font-family="Helvetica, Arial, sans-serif"
-                                                    x="128.16666666666669" y="255.348" text-anchor="middle"
-                                                    dominant-baseline="auto" font-size="12px" font-weight="400"
-                                                    fill="#373d3f" class="apexcharts-xaxis-label "
-                                                    style="font-family: Helvetica, Arial, sans-serif;">
-                                                    <tspan id="SvgjsTspan1302"
-                                                        style="font-family: Helvetica, Arial, sans-serif;">2</tspan>
-                                                    <title>2</title>
-                                                </text><text id="SvgjsText1303"
-                                                    font-family="Helvetica, Arial, sans-serif" x="256.3333333333333"
-                                                    y="255.348" text-anchor="middle" dominant-baseline="auto"
-                                                    font-size="12px" font-weight="400" fill="#373d3f"
-                                                    class="apexcharts-xaxis-label "
-                                                    style="font-family: Helvetica, Arial, sans-serif;">
-                                                    <tspan id="SvgjsTspan1304"
-                                                        style="font-family: Helvetica, Arial, sans-serif;">3</tspan>
-                                                    <title>3</title>
-                                                </text><text id="SvgjsText1305"
-                                                    font-family="Helvetica, Arial, sans-serif"
-                                                    x="384.49999999999994" y="255.348" text-anchor="middle"
-                                                    dominant-baseline="auto" font-size="12px" font-weight="400"
-                                                    fill="#373d3f" class="apexcharts-xaxis-label "
-                                                    style="font-family: Helvetica, Arial, sans-serif;">
-                                                    <tspan id="SvgjsTspan1306"
-                                                        style="font-family: Helvetica, Arial, sans-serif;">4</tspan>
-                                                    <title>4</title>
-                                                </text><text id="SvgjsText1307"
-                                                    font-family="Helvetica, Arial, sans-serif" x="512.6666666666665"
-                                                    y="255.348" text-anchor="middle" dominant-baseline="auto"
-                                                    font-size="12px" font-weight="400" fill="#373d3f"
-                                                    class="apexcharts-xaxis-label "
-                                                    style="font-family: Helvetica, Arial, sans-serif;">
-                                                    <tspan id="SvgjsTspan1308"
-                                                        style="font-family: Helvetica, Arial, sans-serif;">5</tspan>
-                                                    <title>5</title>
-                                                </text><text id="SvgjsText1309"
-                                                    font-family="Helvetica, Arial, sans-serif" x="640.8333333333331"
-                                                    y="255.348" text-anchor="middle" dominant-baseline="auto"
-                                                    font-size="12px" font-weight="400" fill="#373d3f"
-                                                    class="apexcharts-xaxis-label "
-                                                    style="font-family: Helvetica, Arial, sans-serif;">
-                                                    <tspan id="SvgjsTspan1310"
-                                                        style="font-family: Helvetica, Arial, sans-serif;">6</tspan>
-                                                    <title>6</title>
-                                                </text><text id="SvgjsText1311"
-                                                    font-family="Helvetica, Arial, sans-serif" x="768.9999999999998"
-                                                    y="255.348" text-anchor="middle" dominant-baseline="auto"
-                                                    font-size="12px" font-weight="400" fill="#373d3f"
-                                                    class="apexcharts-xaxis-label "
-                                                    style="font-family: Helvetica, Arial, sans-serif;">
-                                                    <tspan id="SvgjsTspan1312"
-                                                        style="font-family: Helvetica, Arial, sans-serif;">7</tspan>
-                                                    <title>7</title>
-                                                </text></g>
-                                        </g>
-                                        <g id="SvgjsG1314" class="apexcharts-grid">
-                                            <g id="SvgjsG1315" class="apexcharts-gridlines-horizontal">
-                                                <line id="SvgjsLine1317" x1="0" y1="0" x2="769" y2="0"
-                                                    stroke="#f2f6f7" stroke-dasharray="0"
-                                                    class="apexcharts-gridline"></line>
-                                                <line id="SvgjsLine1318" x1="0" y1="45.269600000000004" x2="769"
-                                                    y2="45.269600000000004" stroke="#f2f6f7" stroke-dasharray="0"
-                                                    class="apexcharts-gridline"></line>
-                                                <line id="SvgjsLine1319" x1="0" y1="90.53920000000001" x2="769"
-                                                    y2="90.53920000000001" stroke="#f2f6f7" stroke-dasharray="0"
-                                                    class="apexcharts-gridline"></line>
-                                                <line id="SvgjsLine1320" x1="0" y1="135.80880000000002" x2="769"
-                                                    y2="135.80880000000002" stroke="#f2f6f7" stroke-dasharray="0"
-                                                    class="apexcharts-gridline"></line>
-                                                <line id="SvgjsLine1321" x1="0" y1="181.07840000000002" x2="769"
-                                                    y2="181.07840000000002" stroke="#f2f6f7" stroke-dasharray="0"
-                                                    class="apexcharts-gridline"></line>
-                                                <line id="SvgjsLine1322" x1="0" y1="226.348" x2="769" y2="226.348"
-                                                    stroke="#f2f6f7" stroke-dasharray="0"
-                                                    class="apexcharts-gridline"></line>
-                                            </g>
-                                            <g id="SvgjsG1316" class="apexcharts-gridlines-vertical"></g>
-                                            <line id="SvgjsLine1324" x1="0" y1="226.348" x2="769" y2="226.348"
-                                                stroke="transparent" stroke-dasharray="0"></line>
-                                            <line id="SvgjsLine1323" x1="0" y1="1" x2="0" y2="226.348"
-                                                stroke="transparent" stroke-dasharray="0"></line>
-                                        </g>
-                                        <g id="SvgjsG1288" class="apexcharts-line-series apexcharts-plot-series">
-                                            <g id="SvgjsG1293" class="apexcharts-series" seriesName="Female"
-                                                data:longestSeries="true" rel="2" data:realIndex="1">
-                                                <path id="SvgjsPath1296"
-                                                    d="M 0 90.5392C 44.85833333333333 90.5392 83.30833333333334 77.60502857142859 128.16666666666666 77.60502857142859C 173.02499999999998 77.60502857142859 211.475 206.94674285714288 256.3333333333333 206.94674285714288C 301.19166666666666 206.94674285714288 339.64166666666665 129.34171428571432 384.5 129.34171428571432C 429.35833333333335 129.34171428571432 467.8083333333333 38.80251428571427 512.6666666666666 38.80251428571427C 557.525 38.80251428571427 595.975 161.67714285714288 640.8333333333334 161.67714285714288C 685.6916666666667 161.67714285714288 724.1416666666667 97.0062857142857 769 97.0062857142857"
-                                                    fill="none" fill-opacity="1" stroke="rgba(228,231,237,0.85)"
-                                                    stroke-opacity="1" stroke-linecap="butt" stroke-width="2"
-                                                    stroke-dasharray="0" class="apexcharts-line" index="1"
-                                                    clip-path="url(#gridRectMaskawzxttom)"
-                                                    pathTo="M 0 90.5392C 44.85833333333333 90.5392 83.30833333333334 77.60502857142859 128.16666666666666 77.60502857142859C 173.02499999999998 77.60502857142859 211.475 206.94674285714288 256.3333333333333 206.94674285714288C 301.19166666666666 206.94674285714288 339.64166666666665 129.34171428571432 384.5 129.34171428571432C 429.35833333333335 129.34171428571432 467.8083333333333 38.80251428571427 512.6666666666666 38.80251428571427C 557.525 38.80251428571427 595.975 161.67714285714288 640.8333333333334 161.67714285714288C 685.6916666666667 161.67714285714288 724.1416666666667 97.0062857142857 769 97.0062857142857"
-                                                    pathFrom="M -1 452.696L -1 452.696L 128.16666666666666 452.696L 256.3333333333333 452.696L 384.5 452.696L 512.6666666666666 452.696L 640.8333333333334 452.696L 769 452.696">
-                                                </path>
-                                                <g id="SvgjsG1294" class="apexcharts-series-markers-wrap">
-                                                    <g class="apexcharts-series-markers">
-                                                        <circle id="SvgjsCircle1330" r="0" cx="0" cy="0"
-                                                            class="apexcharts-marker wqrk0nnbp no-pointer-events"
-                                                            stroke="#ffffff" fill="#e4e7ed" fill-opacity="1"
-                                                            stroke-width="2" stroke-opacity="0.9"
-                                                            default-marker-size="0"></circle>
-                                                    </g>
-                                                </g>
-                                                <g id="SvgjsG1295" class="apexcharts-datalabels"></g>
-                                            </g>
-                                            <g id="SvgjsG1289" class="apexcharts-series" seriesName="Male"
-                                                data:longestSeries="true" rel="1" data:realIndex="0">
-                                                <path id="SvgjsPath1292"
-                                                    d="M 0 122.87462857142856C 44.85833333333333 122.87462857142856 83.30833333333334 168.14422857142858 128.16666666666666 168.14422857142858C 173.02499999999998 168.14422857142858 211.475 97.0062857142857 256.3333333333333 97.0062857142857C 301.19166666666666 97.0062857142857 339.64166666666665 181.0784 384.5 181.0784C 429.35833333333335 181.0784 467.8083333333333 77.60502857142859 512.6666666666666 77.60502857142859C 557.525 77.60502857142859 595.975 129.34171428571432 640.8333333333334 129.34171428571432C 685.6916666666667 129.34171428571432 724.1416666666667 51.73668571428573 769 51.73668571428573"
-                                                    fill="none" fill-opacity="1" stroke="rgba(56,202,179,0.85)"
-                                                    stroke-opacity="1" stroke-linecap="butt" stroke-width="2"
-                                                    stroke-dasharray="0" class="apexcharts-line" index="0"
-                                                    clip-path="url(#gridRectMaskawzxttom)"
-                                                    pathTo="M 0 122.87462857142856C 44.85833333333333 122.87462857142856 83.30833333333334 168.14422857142858 128.16666666666666 168.14422857142858C 173.02499999999998 168.14422857142858 211.475 97.0062857142857 256.3333333333333 97.0062857142857C 301.19166666666666 97.0062857142857 339.64166666666665 181.0784 384.5 181.0784C 429.35833333333335 181.0784 467.8083333333333 77.60502857142859 512.6666666666666 77.60502857142859C 557.525 77.60502857142859 595.975 129.34171428571432 640.8333333333334 129.34171428571432C 685.6916666666667 129.34171428571432 724.1416666666667 51.73668571428573 769 51.73668571428573"
-                                                    pathFrom="M -1 452.696L -1 452.696L 128.16666666666666 452.696L 256.3333333333333 452.696L 384.5 452.696L 512.6666666666666 452.696L 640.8333333333334 452.696L 769 452.696">
-                                                </path>
-                                                <g id="SvgjsG1290" class="apexcharts-series-markers-wrap">
-                                                    <g class="apexcharts-series-markers">
-                                                        <circle id="SvgjsCircle1331" r="0" cx="0" cy="0"
-                                                            class="apexcharts-marker wge21gj2n no-pointer-events"
-                                                            stroke="#ffffff" fill="#38cab3" fill-opacity="1"
-                                                            stroke-width="2" stroke-opacity="0.9"
-                                                            default-marker-size="0"></circle>
-                                                    </g>
-                                                </g>
-                                                <g id="SvgjsG1291" class="apexcharts-datalabels"></g>
-                                            </g>
-                                        </g>
-                                        <line id="SvgjsLine1325" x1="0" y1="0" x2="769" y2="0" stroke="#b6b6b6"
-                                            stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs">
-                                        </line>
-                                        <line id="SvgjsLine1326" x1="0" y1="0" x2="769" y2="0" stroke-dasharray="0"
-                                            stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line>
-                                        <g id="SvgjsG1327" class="apexcharts-yaxis-annotations"></g>
-                                        <g id="SvgjsG1328" class="apexcharts-xaxis-annotations"></g>
-                                        <g id="SvgjsG1329" class="apexcharts-point-annotations"></g>
-                                    </g>
-                                    <rect id="SvgjsRect1283" width="0" height="0" x="0" y="0" rx="0" ry="0"
-                                        fill="#fefefe" opacity="1" stroke-width="0" stroke="none"
-                                        stroke-dasharray="0"></rect>
-                                    <g id="SvgjsG1313" class="apexcharts-yaxis" rel="0"
-                                        transform="translate(-21, 0)"></g>
-                                </svg>
-                                <div class="apexcharts-tooltip light">
-                                    <div class="apexcharts-tooltip-title"
-                                        style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></div>
-                                    <div class="apexcharts-tooltip-series-group"><span
-                                            class="apexcharts-tooltip-marker"
-                                            style="background-color: rgb(56, 202, 179);"></span>
-                                        <div class="apexcharts-tooltip-text"
-                                            style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">
-                                            <div class="apexcharts-tooltip-y-group"><span
-                                                    class="apexcharts-tooltip-text-label"></span><span
-                                                    class="apexcharts-tooltip-text-value"></span></div>
-                                            <div class="apexcharts-tooltip-z-group"><span
-                                                    class="apexcharts-tooltip-text-z-label"></span><span
-                                                    class="apexcharts-tooltip-text-z-value"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="apexcharts-tooltip-series-group"><span
-                                            class="apexcharts-tooltip-marker"
-                                            style="background-color: rgb(228, 231, 237);"></span>
-                                        <div class="apexcharts-tooltip-text"
-                                            style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">
-                                            <div class="apexcharts-tooltip-y-group"><span
-                                                    class="apexcharts-tooltip-text-label"></span><span
-                                                    class="apexcharts-tooltip-text-value"></span></div>
-                                            <div class="apexcharts-tooltip-z-group"><span
-                                                    class="apexcharts-tooltip-text-z-label"></span><span
-                                                    class="apexcharts-tooltip-text-z-value"></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="apexcharts-xaxistooltip apexcharts-xaxistooltip-bottom light">
-                                    <div class="apexcharts-xaxistooltip-text"
-                                        style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="resize-triggers">
-                            <div class="expand-trigger">
-                                <div style="width: 832px; height: 440px;"></div>
-                            </div>
-                            <div class="contract-trigger"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div> <!-- </div> -->
 </div> <!-- row closed -->
 <!-- row  -->
-<div class="row">
-    <div class="col-12 col-sm-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">Product Summary</h4>
-            </div>
-            <div class="card-body pt-0 example1-table">
-                <div class="table-responsive">
-                    <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6">
-                                <div class="dataTables_length" id="example1_length"><label><select
-                                            name="example1_length" aria-controls="example1"
-                                            class="form-select form-select-sm select2 select2-hidden-accessible"
-                                            tabindex="-1" aria-hidden="true">
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select><span
-                                            class="select2 select2-container select2-container--default"
-                                            dir="ltr" style="width: 100%;"><span class="selection"><span
-                                                    class="select2-selection select2-selection--single"
-                                                    role="combobox" aria-haspopup="true"
-                                                    aria-expanded="false" tabindex="0"
-                                                    aria-labelledby="select2-example1_length-cl-container"><span
-                                                        class="select2-selection__rendered"
-                                                        id="select2-example1_length-cl-container"
-                                                        title="10">10</span><span
-                                                        class="select2-selection__arrow"
-                                                        role="presentation"><b
-                                                            role="presentation"></b></span></span></span><span
-                                                class="dropdown-wrapper"
-                                                aria-hidden="true"></span></span></label></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <div id="example1_filter" class="dataTables_filter"><label><input
-                                            type="search" class="form-control form-control-sm "
-                                            placeholder="Search..." aria-controls="example1"></label></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <table class="table table-bordered text-nowrap mb-0 dataTable no-footer"
-                                    id="example1" role="grid" aria-describedby="example1_info">
-                                    <thead>
-                                        <tr role="row">
-                                            <th class="text-center sorting sorting_asc" tabindex="0"
-                                                aria-controls="example1" rowspan="1" colspan="1"
-                                                aria-sort="ascending"
-                                                aria-label="Purchase Date: activate to sort column descending"
-                                                style="width: 95.1719px;">Purchase Date</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1"
-                                                aria-label="Client Name: activate to sort column ascending"
-                                                style="width: 87.6406px;">Client Name</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1"
-                                                aria-label="Product ID: activate to sort column ascending"
-                                                style="width: 67.25px;">Product ID</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1"
-                                                aria-label="Product: activate to sort column ascending"
-                                                style="width: 262.688px;">Product</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1"
-                                                aria-label="Product Cost: activate to sort column ascending"
-                                                style="width: 84.4375px;">Product Cost</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1"
-                                                aria-label="Payment Mode: activate to sort column ascending"
-                                                style="width: 104.312px;">Payment Mode</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1"
-                                                aria-label="Status: activate to sort column ascending"
-                                                style="width: 52.5px;">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd">
-                                            <td class="text-center sorting_1">#01</td>
-                                            <td>Sean Black</td>
-                                            <td>PRO12345</td>
-                                            <td>Mi LED Smart TV 4A 80</td>
-                                            <td>$14,500</td>
-                                            <td>Online Payment</td>
-                                            <td><span class="badge badge-success">Delivered</span></td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td class="text-center sorting_1">#02</td>
-                                            <td>Evan Rees</td>
-                                            <td>PRO8765</td>
-                                            <td>Thomson R9 122cm (48 inch) Full HD LED TV </td>
-                                            <td>$30,000</td>
-                                            <td>Cash on delivered</td>
-                                            <td><span class="badge badge-primary">Add Cart</span></td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td class="text-center sorting_1">#03</td>
-                                            <td>David Wallace</td>
-                                            <td>PRO54321</td>
-                                            <td>Vu 80cm (32 inch) HD Ready LED TV</td>
-                                            <td>$13,200</td>
-                                            <td>Online Payment</td>
-                                            <td><span class="badge badge-orange">Pending</span></td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td class="text-center sorting_1">#04</td>
-                                            <td>Julia Bower</td>
-                                            <td>PRO97654</td>
-                                            <td>Micromax 81cm (32 inch) HD Ready LED TV</td>
-                                            <td>$15,100</td>
-                                            <td>Cash on delivered</td>
-                                            <td><span class="badge badge-secondary">Delivering</span></td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td class="text-center sorting_1">#05</td>
-                                            <td>Kevin James</td>
-                                            <td>PRO4532</td>
-                                            <td>HP 200 Mouse &amp; Wireless Laptop Keyboard </td>
-                                            <td>$5,987</td>
-                                            <td>Online Payment</td>
-                                            <td><span class="badge badge-danger">Shipped</span></td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td class="text-center sorting_1">#06</td>
-                                            <td>Theresa Wright</td>
-                                            <td>PRO6789</td>
-                                            <td>Digisol DG-HR3400 Router </td>
-                                            <td>$11,987</td>
-                                            <td>Cash on delivered</td>
-                                            <td><span class="badge badge-secondary">Delivering</span></td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td class="text-center sorting_1">#07</td>
-                                            <td>Sebastian Black</td>
-                                            <td>PRO4567</td>
-                                            <td>Dell WM118 Wireless Optical Mouse</td>
-                                            <td>$4,700</td>
-                                            <td>Online Payment</td>
-                                            <td><span class="badge badge-info">Add to Cart</span></td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td class="text-center sorting_1">#08</td>
-                                            <td>Kevin Glover</td>
-                                            <td>PRO32156</td>
-                                            <td>Dell 16 inch Laptop Backpack </td>
-                                            <td>$678</td>
-                                            <td>Cash On delivered</td>
-                                            <td><span class="badge badge-pink">Delivered</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-5">
-                                <div class="dataTables_info" id="example1_info" role="status"
-                                    aria-live="polite">Showing 1 to 8 of 8 entries</div>
-                            </div>
-                            <div class="col-sm-12 col-md-7">
-                                <div class="dataTables_paginate paging_simple_numbers"
-                                    id="example1_paginate">
-                                    <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled"
-                                            id="example1_previous"><a href="#" aria-controls="example1"
-                                                data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-                                        </li>
-                                        <li class="paginate_button page-item active"><a href="#"
-                                                aria-controls="example1" data-dt-idx="1" tabindex="0"
-                                                class="page-link">1</a></li>
-                                        <li class="paginate_button page-item next disabled"
-                                            id="example1_next"><a href="#" aria-controls="example1"
-                                                data-dt-idx="2" tabindex="0" class="page-link">Next</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 {% endblock content %}

@@ -1,0 +1,38 @@
+{% load static %}
+<div class="top sticky overflow-hidden">
+    <div class="container ">
+        <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 justify-content-center">
+                <div class="logo-demo">
+                    <a href="{% url 'base:index' %}"><img alt="" class="logo" src="demo/img/logo-white.png"></a>
+                    <a href="{% url 'base:index' %}"><img alt="" class="logo-2" src="demo/img/logo.png"></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-sm-12 d-none d-lg-flex justify-content-center">
+                <ul class="nav navbar-nav nav-pills justify-content-center">
+                    <li class="nav-item"><a href="#home" class="active nav-link nav-scroll">Home</a></li>
+                    <li class="nav-item"><a href="#main-themes" class="nav-link nav-scroll">About</a></li>
+                    <li class="nav-item"><a href="#main-themes" class="nav-link nav-scroll">Features</a></li>
+                    <li class="nav-item"><a href="#main-screens" class="nav-link nav-scroll">Pricing</a>
+                    </li>
+                    <li class="nav-item"><a href="#main-video" class="nav-link nav-scroll">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-sm-12 d-none d-lg-flex justify-content-center">
+                <div class="header-nav-right">
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'base:dashboard' %}"
+                        class="btn rounded-pill btn-success-gradient pt-2 pb-2">
+                        Dashboard
+                    </a>
+                    {% else %}
+                    <a href="{% url 'account_login' %}"
+                        class="btn rounded-pill btn-success-gradient pt-2 pb-2">
+                        Login
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

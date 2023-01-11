@@ -66,7 +66,7 @@
                                         unread Notifications</p>
                                 </div>
                                 <div class="main-notification-list Notification-scroll ps"> 
-                                    <a class="d-flex p-3 border-bottom" href="mail.html">
+                                    <a class="d-flex p-3 border-bottom" href="">
                                         <div class="notifyimg bg-pink"> 
                                             <i class="far fa-folder-open text-white"></i>
                                         </div>
@@ -79,7 +79,7 @@
                                     </a>
                                 </div>
                                 <div class="dropdown-footer"> <a class="btn btn-primary btn-sm btn-block"
-                                        href="mail.html">VIEW ALL</a> </div>
+                                        href="">VIEW ALL</a> </div>
                             </div>
                         </li>
                         <li class="nav-link search-icon d-lg-none d-block">
@@ -100,20 +100,20 @@
                         </li>
                         <li class="dropdown main-profile-menu nav nav-item nav-link ps-lg-2"> <a
                                 class="new nav-link profile-user d-flex" href="" data-bs-toggle="dropdown"><img alt=""
-                                    src="{% static 'img/faces/2.jpg' %}" class=""></a>
+                                    src="https://cdn-icons-png.flaticon.com/512/666/666201.png" class=""></a>
                             <div class="dropdown-menu">
                                 <div class="menu-header-content p-3 border-bottom">
                                     <div class="d-flex wd-100p">
-                                        <div class="main-img-user"><img alt="" src="{% static 'img/faces/2.jpg' %}" class="">
+                                        <div class="main-img-user"><img alt="" src="https://cdn-icons-png.flaticon.com/512/666/666201.png" class="">
                                         </div>
                                         <div class="ms-3 my-auto">
-                                            <h6 class="tx-15 font-weight-semibold mb-0">Teri Dactyl</h6><span
+                                            <h6 class="tx-15 font-weight-semibold mb-0">{{user}}</h6><span
                                                 class="dropdown-title-text subtext op-6  tx-12">Premium
                                                 Member</span>
                                         </div>
                                     </div>
                                 </div> 
-                                <a class="dropdown-item" href="profile.html">
+                                <a class="dropdown-item" href="">
                                     <i class="far fa-user-circle"></i>Profile
                                 </a> 
                                 <a class="dropdown-item" href="{% url 'account_logout' %}">

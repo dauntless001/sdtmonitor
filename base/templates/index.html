@@ -1,2 +1,510 @@
 {% extends 'partials/_layout.html' %}
-{% block title %}Home{% endblock title %}
+{% load static i18n %}
+{% block title %}Homepage{% endblock title %}
+{% block content %}
+<div class="landing-top-header">
+    {% include 'partials/_navbar.html' %}
+    <div class="demo-screen-headline main-demo main-demo-1 overflow-hidden pb-0" id="home">
+        <div class="overflow-hidden">
+            <div class="row">
+                <div class="col-lg-7 text-center mx-auto px-5 py-2 animation-zidex text-left wow fadeInLeft pos-relative mb-5 mt-0 overflow-hidden "
+                    data-wow-delay="0.1s">
+                    <div class="container">
+                        <h5 class="text-white mb-0">Introducing :</h5>
+                        <h1 class="header-family"><span class="text-primary mr-2">Nowa !</span><span>Bootstrap 5 HTML Admin Template</span></h1>
+                        <h6 class="pb-3 text-white-80">Nowa-Now you can use this admin template to design stunning dashboards that will wow your target viewers or users to no end. To create a good and well-structured dashboard, you need to start from scratch with HTML, SCSS, CSS, and JS and with lots of coding, but by using this Nowa-Admin template, you can customise your dashboard effortlessly within no time. And we create our templates in a very professional manner to satisfy our clients.</h6>
+
+                        <a href="{% url 'base:dashboard' %}" target="_blank" class="btn ripple btn-secondary mw-30 mx-1 mb-2">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <ul class="circles mb-0">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-banner">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 img-container-main">
+                            <img src="{% static 'img/main.png' %}" class="mx-auto img-fluid" alt="main-banner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div> 
+</div>
+<section class="section sptb demo-screen-demo " id="benfits">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <h1 class="header-family">Related Information</h1>
+                <p class="wow fadeInUp text-default sub-text mb-5" data-wow-delay="0s"> This is the basic information related to "Nowa Admin Template." </p>
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 col-xl-6 col-sm-12">
+                        <div class="card border-0">
+                            <div class="rounded card-body">
+                                <div class="row">
+                                    <div class="col-xl-2 col-sm-2">
+                                        <div class="featured_icon mb-0 feature-1 text-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M20.71,16.71l-2.42-2.42a1,1,0,0,0-1.42,0l-3.58,3.58a1,1,0,0,0-.29.71V21a1,1,0,0,0,1,1h2.42a1,1,0,0,0,.71-.29l3.58-3.58A1,1,0,0,0,20.71,16.71ZM16,20H15V19l2.58-2.58,1,1Zm-6,0H6a1,1,0,0,1-1-1V5A1,1,0,0,1,6,4h5V7a3,3,0,0,0,3,3h3v1a1,1,0,0,0,2,0V9s0,0,0-.06a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19.32.32,0,0,0-.09,0L12.06,2H6A3,3,0,0,0,3,5V19a3,3,0,0,0,3,3h4a1,1,0,0,0,0-2ZM13,5.41,15.59,8H14a1,1,0,0,1-1-1ZM8,14h6a1,1,0,0,0,0-2H8a1,1,0,0,0,0,2Zm0-4H9A1,1,0,0,0,9,8H8a1,1,0,0,0,0,2Zm2,6H8a1,1,0,0,0,0,2h2a1,1,0,0,0,0-2Z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-10 col-sm-10">
+                                        <h5 class="font-weight-bold mb-2">Customization</h5>
+                                        <p class="text-default mb-0 ">The Nowa admin template gives very tough competition to the HTML builder because it’s very easy to customize and change the whole theme according to your choice using the Nowa template and we design our templates in a professional manner.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 col-xl-6 col-sm-12">
+                        <div class="card border-0">
+                            <div class="rounded card-body">
+                                <div class="row">
+                                    <div class="col-xl-2 col-sm-2">
+                                        <div class="featured_icon mb-0 feature-4 text-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a2.81,2.81,0,0,0,.49-.05l.3-.07.07,0h0l.05,0,.37-.14.13-.07c.1-.06.21-.11.31-.18a3.79,3.79,0,0,0,.38-.32l.07-.09a2.69,2.69,0,0,0,.27-.32l.09-.13a2.31,2.31,0,0,0,.18-.35,1,1,0,0,0,.07-.15c.05-.12.08-.25.12-.38l0-.15A2.6,2.6,0,0,0,22,19V5A3,3,0,0,0,19,2ZM5,20a1,1,0,0,1-1-1V14.69l3.29-3.3h0a1,1,0,0,1,1.42,0L17.31,20Zm15-1a1,1,0,0,1-.07.36,1,1,0,0,1-.08.14.94.94,0,0,1-.09.12l-5.35-5.35.88-.88a1,1,0,0,1,1.42,0h0L20,16.69Zm0-5.14L18.12,12a3.08,3.08,0,0,0-4.24,0l-.88.88L10.12,10a3.08,3.08,0,0,0-4.24,0L4,11.86V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM13.5,6A1.5,1.5,0,1,0,15,7.5,1.5,1.5,0,0,0,13.5,6Z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-10 col-sm-10">
+                                        <h5 class="font-weight-bold mb-2">Pre-Built Theme Styles</h5>
+                                        <p class="text-default mb-0 ">Here Pre-Built Theme Styles are nothing but the styles that we provided in the Nowa admin template. Using those styles, users can easily change the styles of the template.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 col-xl-6 col-sm-12">
+                        <div class="card border-0">
+                            <div class="rounded card-body">
+                                <div class="row">
+                                    <div class="col-xl-2 col-sm-2">
+                                        <div class="featured_icon mb-0 feature-3 text-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M18.42,8.22A7,7,0,0,0,5.06,10.11,4,4,0,0,0,6,18a1,1,0,0,0,0-2,2,2,0,0,1,0-4,1,1,0,0,0,1-1,5,5,0,0,1,9.73-1.61,1,1,0,0,0,.78.67,3,3,0,0,1,.24,5.84,1,1,0,0,0,.5,1.94,5,5,0,0,0,.17-9.62Zm-5.71,2.07a1,1,0,0,0-.33-.21,1,1,0,0,0-.76,0,1,1,0,0,0-.33.21l-3,3a1,1,0,0,0,1.42,1.42L11,13.41V19a1,1,0,0,0,2,0V13.41l1.29,1.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-10 col-sm-10">
+                                        <h5 class="font-weight-bold mb-2">Updates</h5>
+                                        <p class="text-default mb-0 ">We provide well-maintained, crystal-clear, and easily understandable change logs to give updates to our users. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 col-xl-6 col-sm-12">
+                        <div class="card border-0">
+                            <div class="rounded card-body">
+                                <div class="row">
+                                    <div class="col-xl-2 col-sm-2">
+                                        <div class="featured_icon mb-0 feature-6 text-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M19.07,4.93A10,10,0,1,0,4.93,19.07,10,10,0,1,0,19.07,4.93ZM18.23,7H12.76l2.35-2.35A8.14,8.14,0,0,1,18.23,7ZM9,4.6a8.15,8.15,0,0,1,3.87-.54L9,7.93ZM7,5.77v5.47L5.19,9.43l-.54-.54A8.14,8.14,0,0,1,7,5.77ZM4.6,15a8.12,8.12,0,0,1-.54-3.87L7.93,15Zm1.17,2h5.47L8.89,19.35A8.14,8.14,0,0,1,5.77,17ZM15,19.4a8.13,8.13,0,0,1-3.87.54L15,16.07Zm0-6.16L13.24,15H10.75L9,13.24V10.76L10.76,9h2.48L15,10.76Zm2,5V12.76l2.35,2.35A8.14,8.14,0,0,1,17,18.23ZM16.07,9H19.4a8.13,8.13,0,0,1,.54,3.87Z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-10 col-sm-10">
+                                        <h5 class="font-weight-bold mb-2">Compatibility</h5>
+                                        <p class="text-default mb-0 ">The Nowa admin template is compatible with all most all the devices, like Desktops, Laptops, Tabs and Mobiles, etc.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section p-5 bg-primary" id="main-video">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="text-white mb-4">Preview Video of Nowa Admin Template</h1>
+                <p class="text-white mb-4 tx-16"><i class="fa fa-quote-left me-3"></i>The Nowa – Bootstrap 5 Admin and Dashboard Template is fully loaded with the best features, and the best thing about this template is that users can use it for multiple purposes. We used HTML 5, Bootstrap 5, and SASS to give you the best user experience while you are using this template or features of this template. Please take a quick look at the preview.
+                </p>
+                <p class="text-white mb-4 tx-16">The Nowa–Bootstrap 5 Admin and Dashboard Template comes with different types of layouts, versions, and themes. This template is used for multiple purposes. </p>
+                <a href="Nowa/HTML/index.html" target="_blank" class="btn ripple btn-secondary mw-30 mx-1 mb-2">LIVE PREVIEW <i class="fe fe-eye ml-2"></i>
+                </a>
+                <a href="https://spruko.com/licenses.html"
+                class="btn ripple btn-info mw-30 mx-1 mb-2" target="_blank">
+                LICENSES  <i class="fe fe-file ml-2"></i></a>
+            </div>
+            <div class="col-lg-6 justify-content-center mt-lg-0 mt-5">
+                <div class="row">
+                    <div class="position-relative video-img-container text-center">
+                        <iframe src="https://www.youtube.com/embed/Yk6xPgb3cfk?playlist=Yk6xPgb3cfk&amp;loop=1&amp;rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section p-5 bg-primary-transparent" id="main-video1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 justify-content-center mt-lg-0 mt-5">
+                <div class="row">
+                    <div class="position-relative video-img-container text-center">
+                        <iframe src="https://www.youtube.com/embed/RP5U3I2tSIU?playlist=RP5U3I2tSIU&amp;loop=1&amp;rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h1 class="mb-4 text-default">Code Quality of Nowa Admin Template</h1>
+                <p class="mb-4 tx-16 text-default"><i class="fa fa-quote-left me-3"></i>The Nowa – Bootstrap 5 Admin and Dashboard Template is fully loaded with the best features, Apart from that outstanding features it has clear and well structured code.All HTML,CSS,SCSS & JS are well structured and well commented.Nowa comes with futuristic design and eye catching colors with clear details.The code is properly aligned and is easily understandable.
+                </p>
+                <p class="mb-4 tx-16 text-default">The Nowa–Bootstrap 5 Admin and Dashboard Template comes with different types of layouts, versions, and themes. This template is used for multiple purposes. </p>
+                <a href="Nowa/HTML/index.html" target="_blank" class="btn ripple btn-secondary mw-30 mx-1 mb-2">LIVE PREVIEW <i class="fe fe-eye ml-2"></i>
+                </a>
+                <a href="https://spruko.com/licenses.html"
+                class="btn ripple btn-info mw-30 mx-1 mb-2" target="_blank">
+                LICENSES  <i class="fe fe-file ml-2"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section sptb demo-screen-demo" id="faqs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <h1 class="header-family">Template Highlights</h1>
+                <p class="wow fadeInUp text-default sub-text mb-5" data-wow-delay="0s"> The Nowa admin template is one of the modern dashboard templates. It is also a premium admin dashboard with high-end features, where users can easily customize or change their projects according to their choice. Please take a quick look at our template highlights. </p>
+                <div class="row" id="grid">
+                    <div class="col-md-6">
+                        <div class="col-md-12 grid-item  p-0">
+                            <div class="card card-collapsed bg-primary-transparent p-0">
+                                <div class="card-header grid-link" data-bs-toggle="card-collapse">
+                                    <a href="#"
+                                        class="card-options-collapse  h5 font-weight-bold card-title mb-0"><i
+                                            class="fe fe-chevron-up me-3"></i>Switch Easily From Vertical to HorizontalMenu </a>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p>
+                                        The Nowa – Bootstrap 5 Admin & Dashboard Template is available in both vertical and horizontal menus. Both menus are managed by single assets. Where users can easily switch from vertical to horizontal menus.
+                                    </p>
+                                    <p class="mt-3">
+                                        <span class="font-weight-bold">Note: </span>Please Refer full Documentation
+                                        for more details.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 grid-item  p-0">
+                            <div class="card card-collapsed bg-info-transparent p-0">
+                                <div class="card-header grid-link" data-bs-toggle="card-collapse">
+                                    <a href="#"
+                                        class="card-options-collapse  h5 font-weight-bold card-title mb-0"><i
+                                            class="fe fe-chevron-up me-3"></i>Switch Easily From FullWidth to Boxed Layout</a>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p class="mb-3">
+                                        The Nowa – Bootstrap5 Admin & Dashboard Template is also available in two different types of layouts “Full Width” and “Boxed” Layouts. So that user can switch their dashboard from one layout to another layout effortlessly.
+                                    </p>
+                                    <p class="mt-3">
+                                        <span class="font-weight-bold">Note: </span>Please Refer full Documentation
+                                        for more details.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 grid-item  p-0">
+                            <div class="card card-collapsed bg-success-transparent p-0">
+                                <div class="card-header grid-link" data-bs-toggle="card-collapse">
+                                    <a href="#"
+                                        class="card-options-collapse  h5 font-weight-bold card-title mb-0"><i
+                                            class="fe fe-chevron-up me-3"></i>Switch Easily From LTR to RTL Version</a>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p class="mb-3">
+                                        The Nowa – Bootstrap5 Admin & Dashboard Template is available in LRT & RTL versions with single assets. Using those single assets, it’s very easy to switch from one version to another version.
+                                    </p>
+                                    <p class="mt-3">
+                                        <span class="font-weight-bold">Note: </span>Please Refer full Documentation
+                                        for more details.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12 grid-item  p-0">
+                            <div class="card card-collapsed bg-secondary-transparent p-0">
+                                <div class="card-header grid-link" data-bs-toggle="card-collapse">
+                                    <a href="#"
+                                        class="card-options-collapse  h5 font-weight-bold card-title mb-0"><i
+                                            class="fe fe-chevron-up me-3"></i>Change Easily SideMenu Styles</a>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p>
+                                        The Nowa – Bootstrap5 Admin & Dashboard Template is also available in different types of Side Menu Styles. Where the users can change their Side Menu styles by using single assets.
+                                    </p>
+                                    <p class="mt-3">
+                                        <span class="font-weight-bold">Note: </span>Please Refer full Documentation
+                                        for more details.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 grid-item  p-0">
+                            <div class="card card-collapsed bg-warning-transparent p-0">
+                                <div class="card-header grid-link" data-bs-toggle="card-collapse">
+                                    <a href="#"
+                                        class="card-options-collapse  h5 font-weight-bold card-title mb-0"><i
+                                            class="fe fe-chevron-up me-3"></i>Switch Easily From Fixed to Scrollable Layout </a>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p>
+                                        The Nowa – Bootstrap 5 Admin & Dashboard Template is also available in two different types of layouts "Fixed Layout" and "Scrollable Layout". Here users can switch their Template from one layout to another layout easily.
+                                    </p>
+                                    <p class="mt-3">
+                                        <span class="font-weight-bold">Note: </span>Please Refer full Documentation
+                                        for more details.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 grid-item  p-0">
+                            <div class="card card-collapsed bg-danger-transparent p-0">
+                                <div class="card-header grid-link" data-bs-toggle="card-collapse">
+                                    <a href="#"
+                                        class="card-options-collapse  h5 font-weight-bold card-title mb-0"><i
+                                            class="fe fe-chevron-up me-3"></i>Switch Easily From One Color to Another Color style</a>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p>
+                                        The Nowa – Bootstrap 5 Admin & Dashboard Template is available in different types of color styles. Where the users can change their template completely with those color styles.
+                                    </p>
+                                    <p class="mt-3">
+                                        <span class="font-weight-bold">Note: </span>Please Refer full Documentation
+                                        for more details.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="bg-pages bg-primary p-5" id="importance">
+    <div class="container">
+        <div class="row ">
+            <div class="col-sm-12 col-md-6 col-xl-3 col-lg-3 mb-3 mb-lg-0">
+                <div class="card bg-dark-transparent mb-0">
+                    <div class="card-body d-flex">
+                        <div class="test-img my-auto me-4">
+                            <div class="feature-icon bg-primary mx-auto">
+                                <i class="fe fe-book-open text-white"></i>
+                            </div>
+                        </div>
+                        <div class="test-body text-left">
+                            <h1 class="text-white mb-0">
+                                <span class="counter font-weight-semibold counter text-white">100</span>+
+                            </h1>
+                            <div class="counter-text">
+                                <h5 class="bg-lt-gray-80 font-weight-normal mb-0">HTML Pages</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-xl-3 col-lg-3  mb-3 mb-lg-0">
+                <div class="card bg-dark-transparent mb-0">
+                    <div class="card-body d-flex">
+                        <div class="test-img my-auto me-4">
+                            <div class="feature-icon bg-secondary mx-auto">
+                                <i class="fe fe-life-buoy text-white"></i>
+                            </div>
+                        </div>
+                        <div class="text-body text-left">
+                            <h1 class="text-white mb-0">
+                                <span class="counter font-weight-semibold counter text-white">60</span>+
+                            </h1>
+                            <div class="counter-text">
+                                <h5 class="bg-lt-gray-80 font-weight-normal mb-0">Integrated Plugins</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-xl-3 col-lg-3 mb-3 mb-lg-0 ">
+                <div class="card bg-dark-transparent mb-0">
+                    <div class="card-body d-flex">
+                        <div class="test-img my-auto me-4">
+                            <div class="feature-icon bg-warning mx-auto">
+                                <i class="fe fe-file-plus text-white"></i>
+                            </div>
+                        </div>
+                        <div class="text-body text-left">
+                            <h1 class="text-white mb-0">
+                                <span class="counter font-weight-semibold counter text-white">10</span>+
+                            </h1>
+                            <div class="counter-text">
+                                <h5 class="bg-lt-gray-80 font-weight-normal mb-0">Form Elements</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-xl-3 col-lg-3 mb-3 mb-lg-0 ">
+                <div class="card bg-dark-transparent mb-0">
+                    <div class="card-body d-flex">
+                        <div class="test-img my-auto me-4">
+                            <div class="feature-icon mx-auto bg-danger">
+                                <i class="fe fe-grid text-white"></i>
+                            </div>
+                        </div>
+                        <div class="text-body text-left">
+                            <h1 class="text-white mb-0">
+                                <span class="counter font-weight-semibold counter text-white">30</span>+
+                            </h1>
+                            <div class="counter-text">
+                                <h5 class="bg-lt-gray-80 font-weight-normal mb-0">Customize Widgets</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="sptb  bg-white" id="features">
+    <div class="container text-center">
+        <h1 class="header-family">Nowa main Features</h1>
+        <p class="text-default mb-5 ">The Nowa admin template comes with ready-to-use features that are completely easy-to-use for any user, even for a beginner.</p>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card features main-features main-features-1 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-img mb-2 text-left">
+                        <img src="{% static 'img/svgs/1.svg' %}" class="featured-icon mb-2 text-left">
+                    </div>
+                    <div class="text-left">
+                        <h4 class="title">Quality & Clean Code </h4>
+                        <p class="mb-0">The Nowa admin code is maintained very cleanly and well-structured with proper comments.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card  features main-features main-features-2 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-img mb-2 text-left">
+                        <img src="{% static 'img/svgs/2.svg' %}" class="featured-icon mb-2 text-left">
+                    </div>
+                    <div class="text-left">
+                        <h4 class="title">Multiple Demos</h4>
+                        <p class="mb-0">We included multiple demos, preview video, and screen shots to give a quick overview of our Nowa admin template.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card features main-features main-features-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-img mb-2 text-left">
+                        <img src="{% static 'img/svgs/3.svg' %}" class="featured-icon mb-2 text-left">
+                    </div>
+                    <div class="text-left">
+                        <h4 class="title">Bootstrap5 Framework</h4>
+                        <p class="mb-0">Thanks to the Bootstrap 5 framework, because it gives us the ability to easily create responsive designs and it has lots of utility/helper classes that make our Nowa admin template more attractive.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card features main-features main-features-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-img mb-2 text-left">
+                        <img src="{% static 'img/svgs/4.svg' %}" class="featured-icon mb-2 text-left">
+                    </div>
+                    <div class="text-left">
+                        <h4 class="title">50+ additional plugins</h4>
+                        <p class="mb-0">We integrated 60+ plugins into the Nowa admin template that will help our users to simplify their projects and save their development time.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card  features main-features main-features-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-img mb-2 text-left">
+                        <img src="{% static 'img/svgs/5.svg' %}" class="featured-icon mb-2 text-left">
+                    </div>
+                    <div class="text-left">
+                        <h4 class="title">12 types of Icons</h4>
+                        <p class="mb-0">12 types of best Icons are included in this template.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card features main-features main-features-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-img mb-2 text-left">
+                        <img src="{% static 'img/svgs/6.svg' %}" class="featured-icon  mb-2 text-left">
+                    </div>
+                    <div class="text-left">
+                        <h4 class="title">User Pages</h4>
+                        <p class="mb-0">The most advanced "User Pages" are included in this template, like registration, profile, and log-in pages, etc.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="demo-screen-skin bg-primary-gradient">
+    <div class="container text-center text-white">
+        <div id="demo" class="row">
+            <div class="col-lg-6">
+                <div class="feature-1">
+                    <a href="#"></a>
+                    <div class="mb-3">
+                        <i class="si si-earphones-alt"></i>
+                    </div>
+                    <h4>Get Support</h4>
+                    <p class="mb-1 text-white">Need Help? Don't worry. Please visit our support website. Our dedicated team will help you.</p>
+                    <h6 class="mb-0">Support : <a class="text-warning" href="mailto:support@spruko.com">support@spruko.com</a></h6>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-5 mt-xl-0 mt-lg-0">
+                <div class="feature-1">
+                    <a href="#"></a>
+                    <div class="mb-3">
+                        <i class="si si-bubbles"></i>
+                    </div>
+                    <h4>Pre-Sale Questions</h4>
+                    <p class="mb-1 text-white">Please feel free to ask any questions before making the purchase.</p>
+                    <h6 class="mb-0">Ask : <a class="text-warning" href="mailto:support@spruko.com">support@spruko.com</a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
