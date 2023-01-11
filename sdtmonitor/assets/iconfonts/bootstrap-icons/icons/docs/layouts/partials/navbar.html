@@ -1,0 +1,67 @@
+<header class="navbar navbar-expand-md navbar-dark bd-navbar">
+  <nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+    <a class="navbar-brand p-0 me-2" href="%7b%7b%20.Site.Params.main%20%7d%7d/index.html" aria-label="Bootstrap">
+      {{ partialCached "icons/bootstrap-white-fill.svg" (dict "class" "d-block" "width" "40" "height" "32") }}
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <svg class="bi" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+      </svg>
+    </button>
+
+    <div class="collapse navbar-collapse" id="bdNavbar">
+      <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="%7b%7b%20.Site.Params.main%20%7d%7d/index.html" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
+        </li>
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="%7b%7b%20.Site.Params.main%20%7d%7d/docs/%7b%7b%20.Site.Params.bs_docs_version%20%7d%7d/getting-started/introduction/index.html" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Docs</a>
+        </li>
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="%7b%7b%20.Site.Params.main%20%7d%7d/docs/%7b%7b%20.Site.Params.bs_docs_version%20%7d%7d/examples/index.html" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Examples</a>
+        </li>
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2 active" href="https://spruko.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Icons');">Icons</a>
+        </li>
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="%7b%7b%20.Site.Params.themes%20%7d%7d/index.html" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Themes');" target="_blank" rel="noopener">Themes</a>
+        </li>
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="%7b%7b%20.Site.Params.blog%20%7d%7d/index.html" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');" target="_blank" rel="noopener">Blog</a>
+        </li>
+      </ul>
+
+      <hr class="d-md-none text-white-50">
+
+      <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="%7b%7b%20.Site.Params.html" target="_blank" rel="noopener">
+            {{ partialCached "icons/github.svg" (dict "class" "navbar-nav-svg d-inline-block align-text-top" "width" "36" "height" "36") }}
+            <small class="d-md-none ms-2">GitHub</small>
+          </a>
+        </li>
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="https://twitter.com/{{ .Site.Params.twitter }}" target="_blank" rel="noopener">
+            {{ partialCached "icons/twitter.svg" (dict "class" "navbar-nav-svg d-inline-block align-text-top" "width" "36" "height" "36") }}
+            <small class="d-md-none ms-2">Twitter</small>
+          </a>
+        </li>
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="%7b%7b%20.Site.Params.slack%20%7d%7d/index.html" target="_blank" rel="noopener">
+            {{ partialCached "icons/slack.svg" (dict "class" "navbar-nav-svg d-inline-block align-text-top" "width" "36" "height" "36") }}
+            <small class="d-md-none ms-2">Slack</small>
+          </a>
+        </li>
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2" href="%7b%7b%20.Site.Params.opencollective%20%7d%7d/index.html" target="_blank" rel="noopener">
+            {{ partialCached "icons/opencollective.svg" (dict "class" "navbar-nav-svg d-inline-block align-text-top" "width" "36" "height" "36") }}
+            <small class="d-md-none ms-2">Open Collective</small>
+          </a>
+        </li>
+      </ul>
+
+      <a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ms-md-3" href="%7b%7b%20.Site.Params.repo%20%7d%7d/archive/v%7b%7b%20.Site.Params.version%20%7d%7d.html">Download</a>
+    </div>
+  </nav>
+</header>

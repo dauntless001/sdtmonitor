@@ -27,6 +27,10 @@ class ContactView(TemplateView):
     template_name = 'contact.html'
 
 
+
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = 'dashboard.html'
+
 class EditUser(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         template_name = 'profile.html'

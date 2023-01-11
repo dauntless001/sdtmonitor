@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="../../../../../../../../../../assets/css/bootstrap.min.html">
+
+{{- $sassOptions := dict "targetPath" "assets/css/docs.css" "precision" 6 -}}
+{{- $postcssOptions := dict "use" "autoprefixer" "noMap" true -}}
+
+{{- if eq hugo.Environment "production" -}}
+  {{- $sassOptions = merge $sassOptions (dict "outputStyle" "compressed") -}}
+{{- end -}}
+
+{{- $style := resources.Get "scss/docs.scss" | toCSS $sassOptions | postCSS $postcssOptions -}}
+
+<link rel="stylesheet" href="%7b%7b%20%24style.html">
