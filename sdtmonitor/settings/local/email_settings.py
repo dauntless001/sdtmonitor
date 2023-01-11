@@ -1,15 +1,16 @@
 import os
-
+from decouple import config
 # Sending email configuration
-EMAIL_HOST_USER = os.getenv(
-    "EMAIL_HOST_USER", "contact@sdtmonitor.com"
+
+EMAIL_HOST_USER = config(
+    "EMAIL_HOST_USER"
 )
 
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
-EMAIL_PORT = os.getenv("EMAIL_PORT", 587)
+EMAIL_PORT = config("EMAIL_PORT")
 
-EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.gmail.com")
+EMAIL_HOST = config("EMAIL_HOST")
 
 EMAIL_USE_TLS = True
 

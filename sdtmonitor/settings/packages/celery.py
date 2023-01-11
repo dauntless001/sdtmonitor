@@ -1,7 +1,9 @@
 import os
+from decouple import config
 
-CELERY_RESULT_BACKEND = os.getenv(
-    "REDIS_URL", "redis://localhost:6379/0")
+
+CELERY_RESULT_BACKEND = config(
+    "REDIS_URL")
 
 BROKER_URL = CELERY_RESULT_BACKEND
 
