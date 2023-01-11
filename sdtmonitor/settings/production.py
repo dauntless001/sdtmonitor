@@ -23,3 +23,4 @@ DATABASES["default"]= {
 
 
 STATIC_ROOT = BASE_DIR / "assets"
+CSRF_TRUSTED_ORIGINS = [config("CSRF_TRUSTED_ORIGINS"),]
