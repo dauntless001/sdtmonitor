@@ -1,5 +1,7 @@
 {% extends 'partials/_auth_layout.html' %}
 {% load static i18n %}
+{% block title %}{{website.name}}{% endblock title  %}
+{% block breadcrumb_title %}{{website.name}}{% endblock breadcrumb_title %}
 {% block content %}
 <div class="row">
     <div class="col-xl-12">

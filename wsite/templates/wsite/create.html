@@ -1,14 +1,16 @@
 {% extends 'partials/_auth_layout.html' %}
 {% load static i18n %}
+{% block title %}Add Site{% endblock title  %}
+{% block breadcrumb_title %}Add Site{% endblock breadcrumb_title %}
 {% block content %}
 <div class="row">
     <div class="col-xl-12">
         <div class="card">
             <div class="card-header pb-0">
                 <div class="d-flex justify-content-between">
-                    <h4 class="card-title mg-b-0">Hoverable Rows Table</h4>
+                    <!-- <h4 class="card-title mg-b-0">Hoverable Rows Table</h4> -->
                 </div>
-                <p class="tx-12 tx-gray-500 mb-2">Example of Nowa Hoverable Rows Table.. <a href="">Learn more</a></p>
+                <p class="tx-12 tx-gray-500 mb-2">Website URL must carry the http protocol for it to be added</p>
             </div>
             <div class="card-body">
                 <form action="" method="post">

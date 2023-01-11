@@ -41,6 +41,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
+LOGIN_REDIRECT_URL = reverse_lazy("base:dashboard")
 
 def ACCOUNT_USER_DISPLAY(user):
     """

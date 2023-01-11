@@ -8,7 +8,7 @@
     <meta name="Description" content="Website Downtime Monitor">
     <meta name="Author" content="">
     <meta name="Keywords" content="Monitor Website Downtime, Server Monitor" />
-    <title>Server Monitor - {% block title %} {% endblock title  %}</title>
+    <title>{% block title %} {% endblock title  %} - Server Monitor</title>
     <meta http-equiv="imagetoolbar" content="no" />
     {% include 'partials/_auth_stylesheet.html' %}
     {% block extra_styles %} {% endblock extra_styles %}
@@ -31,7 +31,7 @@
                 <div class="main-container container-fluid">
                     <!-- breadcrumb -->
                     <div class="breadcrumb-header justify-content-between">
-                        <div class="left-content"> <span class="main-content-title mg-b-0 mg-b-lg-1">DASHBOARD</span> </div>
+                        <div class="left-content"> <span class="main-content-title mg-b-0 mg-b-lg-1">{% block breadcrumb_title %}DASHBOARD{% endblock breadcrumb_title %}</span> </div>
                         <div class="justify-content-center mt-2">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Dashboard</a></li>
