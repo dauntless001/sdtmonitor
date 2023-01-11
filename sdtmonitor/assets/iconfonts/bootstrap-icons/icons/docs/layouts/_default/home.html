@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from spruko.com/demo/nowa/Nowa/assets/iconfonts/bootstrap-icons/icons/docs/layouts/_default/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Jan 2023 11:03:30 GMT -->
+<head>
+    {{ partial "head" . }}
+  </head>
+  <body id="icons-body">
+    {{ partialCached "skippy" . }}
+    {{ partialCached "navbar" . }}
+    {{ partialCached "home/hero" . }}
+
+    <main class="container" id="content">
+      {{ partialCached "icons" . }}
+
+      {{ .Content }}
+    </main>
+
+    {{- partialCached "footer" . }}
+    {{- partialCached "scripts" . "home" }}
+  </body>
+
+<!-- Mirrored from spruko.com/demo/nowa/Nowa/assets/iconfonts/bootstrap-icons/icons/docs/layouts/_default/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Jan 2023 11:03:30 GMT -->
+</html>

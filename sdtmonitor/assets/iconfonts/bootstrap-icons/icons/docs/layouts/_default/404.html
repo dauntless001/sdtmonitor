@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from spruko.com/demo/nowa/Nowa/assets/iconfonts/bootstrap-icons/icons/docs/layouts/_default/404.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Jan 2023 11:03:30 GMT -->
+<head>
+    {{ partial "head" . }}
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    {{ partialCached "skippy" . }}
+    {{ partialCached "navbar" . }}
+
+    <main class="my-auto p-5" id="content">
+      {{ .Content }}
+    </main>
+
+    {{- partialCached "scripts" . "default" }}
+  </body>
+
+<!-- Mirrored from spruko.com/demo/nowa/Nowa/assets/iconfonts/bootstrap-icons/icons/docs/layouts/_default/404.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Jan 2023 11:03:30 GMT -->
+</html>
