@@ -22,6 +22,7 @@ def send_report_notification():
     websites = Website.objects.all()
     for website in websites:
         status = get_website_status(website.url)
+        print(status)
         if status != website.status:
             last_time = website.modified_at
             website.status = status
