@@ -5,4 +5,4 @@ from wsite.models import Website
 class WebsiteForm(forms.ModelForm, CssForm):
     class Meta:
         model = Website
-        exclude = ['user']
+        exclude = ['user', 'status', 'slug']

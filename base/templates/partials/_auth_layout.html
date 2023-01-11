@@ -20,12 +20,31 @@
         {% block body %}
         <div class="open">
             <!-- main-header -->
+
             {% include 'partials/_auth_navbar.html' %}
              <!-- /main-header -->
             <!-- main-sidebar -->
             {% include 'partials/_auth_sidebar.html' %}
             <!-- main-sidebar -->
-            {% block content %} {% endblock content %}
+            <div class="main-content app-content">
+                <!-- container -->
+                <div class="main-container container-fluid">
+                    <!-- breadcrumb -->
+                    <div class="breadcrumb-header justify-content-between">
+                        <div class="left-content"> <span class="main-content-title mg-b-0 mg-b-lg-1">DASHBOARD</span> </div>
+                        <div class="justify-content-center mt-2">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Sales</li>
+                            </ol>
+                        </div>
+                    </div> <!-- /breadcrumb -->
+                    <!-- row -->
+                    {% include "partials/_messages.html" %}
+                    {% block content %} {% endblock content %}
+                </div> <!-- /Container -->
+            </div> <!-- /main-content -->
+            
             {% include 'partials/_auth_footer.html' %}
         </div> 
     

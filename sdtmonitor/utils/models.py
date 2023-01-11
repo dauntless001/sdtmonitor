@@ -19,7 +19,7 @@ class NameTimeBasedModel(TimeBasedModel):
 
 
 class StatusModel(models.Model):
-    status = models.CharField(max_length=30, choices=SiteStatus.choices)
+    status = models.CharField(max_length=30, choices=SiteStatus.choices, default=SiteStatus.up)
 
 
     class Meta:

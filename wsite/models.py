@@ -12,6 +12,12 @@ class Website(NameTimeBasedModel, StatusModel):
     
     def __str__(self):
         return f'{self.name} site by {self.user}'
+    
+    def get_color(self):
+        return 'success' if self.status == 'up' else 'danger'
+    
+    def emails(self):
+        return self.websiteemail_set.all()
 
 
 class WebsiteLog(TimeBasedModel, StatusModel):

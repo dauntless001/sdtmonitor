@@ -51,6 +51,7 @@ class CreateWebsiteView(LoginRequiredMixin, CreateView):
 class RetrieveWebsiteView(LoginRequiredMixin, DetailView):
     template_name = 'wsite/detail.html'
     slug_url_kwarg = 'slug'
+    model = Website
 
 
 
