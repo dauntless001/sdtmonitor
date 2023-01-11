@@ -17,6 +17,13 @@ class ListWebsiteView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Website.objects.filter(user=self.request.user)
 
+class DetailWebsiteView(LoginRequiredMixin, ListView):
+    template_name = 'wsite/detail.html'
+    context_object_name = 'websites'
+    
+    def get_queryset(self):
+        return Website.objects.filter(user=self.request.user)
+
 
 class CreateWebsiteView(LoginRequiredMixin, CreateView):
     template_name = 'wsite/create.html'
