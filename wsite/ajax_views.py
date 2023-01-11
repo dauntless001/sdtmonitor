@@ -14,9 +14,8 @@ class AddEmailView(LoginRequiredMixin, UserPassesTestMixin ,View):
         return get_object_or_404(Website, slug=self.kwargs['slug'])
 
     def post(self, request, *args, **kwargs):
-        emails = request.POST['emails']
-        for email in emails:
-            _, created = WebsiteEmail.objects.get_or_create(site=self.get_website(), email=email)
+        email = request.POST.get('email', None)
+        _, created = WebsiteEmail.objects.get_or_create(site=self.get_website(), email=email)
         data = {
             'msg' : 'Emails Added Successfully'
         }

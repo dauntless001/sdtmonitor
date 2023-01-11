@@ -1,0 +1,56 @@
+{% extends 'partials/_auth_layout.html' %}
+{% load static i18n %}
+{% block title %}My Sites{% endblock title  %}
+{% block breadcrumb_title %}My Sites{% endblock breadcrumb_title %}
+{% block content %}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header pb-0">
+                <div class="d-flex justify-content-between">
+                    <h4 class="card-title mg-b-0">Sites Under your watch</h4>
+                    <a href="{% url 'wsites:create-site' %}" class="btn btn-primary btn-sm">Add Site</a>
+                </div>
+                <p class="tx-12 tx-gray-500 mb-2">
+
+                </p>
+            </div>
+            <div class="card-body">
+                {% if websites %}
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover mb-0 text-md-nowrap">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>URL</th>
+                                <th>Status</th>
+                                <th>Func</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for website in websites %}
+                            <tr>
+                                <th scope="row">{{forloop.counter}}</th>
+                                <td>{{website.name}}</td>
+                                <td>{{website.url}}</td>
+                                <td class="text-center"><span class="badge bg-{{website.get_color}}">{{website.status}}</span></td>
+                                <td>
+                                    <a href="{% url 'wsites:site' website.slug %}" class="btn btn-primary btn-sm">View</a>
+                                    <a href="{% url 'wsites:delete-site' website.slug %}" class="btn btn-outline-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <p>No Site under your watch Yet! <a href="{% url 'wsites:create-site' %}" class="text-danger">Add to WatchList</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Monitor - {% block title %}{% endblock title %}</title>
-
+    <title>{% block title %}{% endblock title %} - Server Monitor</title>
+    {% include 'partials/_stylesheet.html' %}
 </head>
-<body>
+<body class="demo-screen index1">
+    {% block content %}{% endblock content %}
+    {% include 'partials/_footer.html' %}
+    <!-- Back to top -->
+    <a href="#top" id="back-to-top"><span class="fe fe-chevrons-up"></span></a>
+    {% include 'partials/_script.html' %}
 </body>
 </html>

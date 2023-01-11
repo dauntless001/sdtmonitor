@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Description" content="Website Downtime Monitor">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="Monitor Website Downtime, Server Monitor" />
+    <title>{% block title %} {% endblock title  %} - Server Monitor</title>
+    <meta http-equiv="imagetoolbar" content="no" />
+    {% include 'partials/_auth_stylesheet.html' %}
+    {% block extra_styles %} {% endblock extra_styles %}
+</head>
+
+<body class="ltr main-body app sidebar-mini">
+    <div id="global-loader" style="display: none;"> <img src="{% static 'img/loader.svg' %}" class="loader-img" alt="Loader"> </div>
+    <div class="page">
+        {% block body %}
+        <div class="open">
+            <!-- main-header -->
+
+            {% include 'partials/_auth_navbar.html' %}
+             <!-- /main-header -->
+            <!-- main-sidebar -->
+            {% include 'partials/_auth_sidebar.html' %}
+            <!-- main-sidebar -->
+            <div class="main-content app-content">
+                <!-- container -->
+                <div class="main-container container-fluid">
+                    <!-- breadcrumb -->
+                    <div class="breadcrumb-header justify-content-between">
+                        <div class="left-content"> <span class="main-content-title mg-b-0 mg-b-lg-1">{% block breadcrumb_title %}DASHBOARD{% endblock breadcrumb_title %}</span> </div>
+                        <div class="justify-content-center mt-2">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Sales</li>
+                            </ol>
+                        </div>
+                    </div> <!-- /breadcrumb -->
+                    <!-- row -->
+                    {% include "partials/_messages.html" %}
+                    {% block content %} {% endblock content %}
+                </div> <!-- /Container -->
+            </div> <!-- /main-content -->
+            
+            {% include 'partials/_auth_footer.html' %}
+        </div> 
+    
+        {% endblock body %}
+    </div>
+    <a href="#top" id="back-to-top" style="display: none;"><i class="las la-arrow-up"></i></a>
+    {% include 'partials/_auth_script.html' %}
+    {% block extra_scripts %} {% endblock extra_scripts %}
+</body>
+
+</html>

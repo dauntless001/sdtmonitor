@@ -1,0 +1,138 @@
+{% extends 'partials/_auth_layout.html' %}
+{% load static i18n %}
+{% block title %}{{website.name}}{% endblock title  %}
+{% block breadcrumb_title %}{{website.name}}{% endblock breadcrumb_title %}
+{% block content %}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header pb-0">
+                <div class="d-flex justify-content-between">
+                    <h4 class="card-title mg-b-0">Site {{website.name}}</h4>
+                    <!-- <a href="{% url 'wsites:create-site' %}" class="btn btn-primary btn-sm">Add Site</a> -->
+                </div>
+                <p class="tx-12 tx-gray-500 mb-2">
+
+                </p>
+            </div>
+            <div class="card-body">
+                <h6>Logs from {{website.name}} watch</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header pb-0">
+                <div class="d-flex justify-content-between">
+                    <h4 class="card-title mg-b-0">Emails Associated to {{website.name}} watch</h4>
+                    <a  data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary btn-sm">Add Email</a>
+                    <!-- <a href="{% url 'wsites:create-site' %}" class="btn btn-primary btn-sm">Add Site</a> -->
+                </div>
+                <p class="tx-12 tx-gray-500 mb-2">
+
+                </p>
+            </div>
+            <div class="card-body">
+                {% if website.emails %}
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover mb-0 text-md-nowrap">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for email in website.emails %}
+                            <tr>
+                                <th scope="row">{{forloop.counter}}</th>
+                                <td>{{email.email}}</td>
+                                <td>
+                                    <button data-email="{{email.email}}" onclick="removeEmail(this)" class="btn btn-outline-danger btn-sm">Remove</button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <p>No Emails Added Yet! <a  class="text-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Email</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form action="" method="post" id="email-form">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Email to {{website.name}}</h5>
+                <button type="button" class="text-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <label for="">Email</label>
+                <input type="email" name="email" class="form-control" id="">
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Add Email</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+{% block extra_scripts %}
+<script type="text/javascript">
+document.getElementById('email-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const {value} = e.target[1]
+    data = new FormData()
+    $.ajax({
+        url : `{% url 'wsite:add-email' 1200 %}`.replace(1200, '{{website.slug}}'),
+        method : 'POST',
+        headers : {
+            "X-CSRFToken" : '{{csrf_token}}'
+        },
+        data : {'email' : value}
+    })
+    .then(data => {
+        $('#staticBackdrop').modal('hide')
+        swal({"text" : data.msg, "icon": "success"})
+        .then((value) => {
+            window.location.reload()
+        });
+    })
+    .catch(err => {
+        $('#staticBackdrop').modal('hide')
+        swal({"text" : "Error Adding Email", "icon": "error"})
+    })
+    
+})
+
+
+const removeEmail = (e)=> {
+    const {email} = e.dataset
+    $.ajax({
+        url : `{% url 'wsite:remove-email' 1200 %}`.replace(1200, '{{website.slug}}'),
+        method : 'POST',
+        headers : {
+            "X-CSRFToken" : '{{csrf_token}}'
+        },
+        data : {'email' : email}
+    })
+    .then(data => {
+        $('#staticBackdrop').modal('hide')
+        swal({"text" : data.msg, "icon": "success"})
+        .then((value) => {
+            window.location.reload()
+        });
+    })
+    .catch(err => swal({"text" : "Error Removing Email", "icon": "error"}))
+}
+</script>
+
+{% endblock extra_scripts %}
