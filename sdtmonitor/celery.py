@@ -1,7 +1,5 @@
 import os
-
 from celery import Celery
-
 from sdtmonitor.settings.packages.celery import CELERY_BROKER_URL
 from sdtmonitor.utils.settings import get_app_settings
 # from reportr.helpers.tasks import send_daily_overview
