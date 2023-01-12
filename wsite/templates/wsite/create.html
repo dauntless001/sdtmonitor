@@ -14,6 +14,7 @@
             </div>
             <div class="card-body">
                 <form action="" method="post">
+                    {% csrf_token %}
                     {% include "partials/_messages.html" %}
                     {% include "partials/_form_errors.html" %}
                     {{form.as_p}}
